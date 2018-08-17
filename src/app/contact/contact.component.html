@@ -1,0 +1,64 @@
+<div class="container">
+
+      <div class="row">
+        <div class="col-sm-6">
+          <h2 class="mt-4">Contact us</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+          <p>
+            <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+          </p>
+        </div>
+        <div class="col-sm-6">
+          <h2 class="mt-4">Contact Form</h2>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          	<div class="form-group row">
+		      <label for="name" class="col-sm-3 col-form-label">Name:<font color="red">*</font></label>
+		      	<div class="col-sm-9">
+		      		<input type="text" class="form-control" id="name" placeholder="Enter name" name="name" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+		      		<div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                            <div *ngIf="f.name.errors.required">Name is required</div>
+                     </div>
+		  		</div>
+		    </div>
+		    <div class="form-group row">
+		      <label for="email" class="col-sm-3 col-form-label">Email:<font color="red">*</font></label>
+		      <div class="col-sm-9">
+		      	<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+		      	<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                     </div>
+		      </div>	
+		    </div>
+		    <div class="form-group row">
+		      <label for="phone" class="col-sm-3 col-form-label">Phone No:<font color="red">*</font></label>
+		      <div class="col-sm-9">
+		      	<input type="text" class="form-control" id="phone" placeholder="Enter Phone No" name="phone" formControlName="phone" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+		      	<div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                            <div *ngIf="f.phone.errors.required">Phone No is required</div>
+                </div>
+                <div *ngIf="submitted && f.phone.invalid" class="invalid-feedback">
+                            <div *ngIf="f.phone.invalid">Invalid Phone No</div>
+                </div>
+		      </div>	
+		    </div>
+		    <div class="form-group row">
+		      <label for="address1" class="col-sm-3 col-form-label">Address:<font color="red">*</font></label>
+		      <div class="col-sm-9">
+		      	<textarea type="textarea" class="form-control" rows="4" id="address1" placeholder="Enter Address" name="address1" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+		      	<div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                            <div *ngIf="f.address.errors.required">Address is required</div>
+                     </div>
+		  	  </div>
+		    </div>
+		    <div class="form-group row">
+		      <label for="message" class="col-sm-3 col-form-label">Message:</label>
+		      <div class="col-sm-9">
+		      	<textarea type="textarea" class="form-control" rows="4" id="message" placeholder="Enter Message" name="message" formControlName="message" ></textarea>
+		  	  </div>
+		    </div>
+		    <button type="submit" class="btn btn-primary" (ngSubmit)="onSubmit()">Submit</button>
+		  </form>
+        </div>
+      </div>
+    </div>
